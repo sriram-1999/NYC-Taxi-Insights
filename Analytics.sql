@@ -113,6 +113,11 @@ JOIN(
   AS dropoff_locationdetails
   ON f.dropoff_location_id=dropoff_locationdetails.dropoff_location_id
 
-);
+)
+
+create table `dataset.final_dataset` as
+SELECT  * FROM `data-analytics-taxi.dataset.data_insights` a
+left join `data-analytics-taxi.dataset.geoloc_map` b
+on a.pickup_borough=b.Borough;
 
 
